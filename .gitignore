@@ -130,3 +130,4 @@ stamp-*
 src/settings.h
 *.in
 !test/
+libtool
