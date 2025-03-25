@@ -1,0 +1,11 @@
+# Cust
+## Building
+To build, run the following (order matters!):
+```sh
+./bootstrap
+./configure
+make -s -j
+```
+These do a couple of things. `./bootstrap` generates the configure files and some other files needed. You must have `autoheader`, `autoconf`, and `automake` installed and working in order to compile it. `./configure` generates the makefile and guesses system dependent things as well as generate a required header. `make -s -j` compiles the program.
+## Build options
+To see build options (configure options), run `./bootstrap` and then `./configure --help` to see the options
