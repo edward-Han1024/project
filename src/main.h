@@ -1,11 +1,18 @@
-#include "includes.h"
+#if !defined(STRING)
+#define STRING
+#include<string>
+using std::string;
+#endif
+
+#include"config.h"
 
 // system.h
-extern int sys(string);
+#if HAVE_CSTDLIB
+extern int sys(string command);
+#endif
 extern const string CXX;
 
 // colortext.h
-extern string error_red(string original);
-extern string warning_pink(string original);
-extern string error_text;
-extern string warning_text;
+namespace colortext{
+    extern string color(string original, string color);
+}

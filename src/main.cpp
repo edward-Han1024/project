@@ -19,7 +19,7 @@ using std::ofstream;
 using std::remove;
 #endif
 
-#if !defined(STRING) && HAVE_STRING
+#if !defined(STRING)
 #define STRING
 #include<string>
 using std::string;

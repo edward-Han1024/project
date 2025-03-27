@@ -132,3 +132,5 @@ src/settings.h
 !test/
 libtool
 m4
+lib
+config.h

@@ -1,6 +1,7 @@
 #pragma once
+#include"../config.h"
 
-#ifndef IOSTREAM
+#if !defined(IOSTREAM) && HAVE_IOSTREAM
 #define IOSTREAM
 #include<iostream>
 using std::cout;
@@ -9,7 +10,7 @@ using std::cin;
 using std::cerr;
 #endif
 
-#ifndef FSTREAM
+#if !defined(FSTREAM) && HAVE_FSTREAM
 #define FSTREAM
 #include<fstream>
 using std::ifstream;
@@ -17,23 +18,23 @@ using std::ofstream;
 using std::remove;
 #endif
 
-#ifndef STRING
+#if !defined(STRING)
 #define STRING
 #include<string>
 using std::string;
 #endif
 
-#ifndef VECTOR
+#if !defined(VECTOR) && HAVE_VECTOR
 #define VECTOR
 #include<vector>
 using std::vector;
 #endif
 
-#ifndef SSTREAM
+#if !defined(SSTREAM) && HAVE_SSTREAM
 #include<sstream>
 using std::ostringstream;
 #endif
 
-#ifndef CSTDLIB
+#if !defined(CSTDLIB) && HAVE_CSTDLIB
 #include <cstdlib>
 #endif

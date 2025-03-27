@@ -11,7 +11,7 @@ AC_CHECK_HEADERS([iostream],
   [AC_MSG_WARN([<iostream> header not found, it's okay, but resulting library will be limited])])
 AC_CHECK_HEADERS([string],
   [AC_DEFINE([HAVE_STRING], [1], [Define to 1 if you have the <string> header file.])],
-  [AC_MSG_WARN([<string> header not found, it's okay, but resulting library will be limited])])
+  [AC_MSG_ERROR([<string> header not found, this is not okay, check if you are using C++ and not C])])
 AC_CHECK_HEADERS([fstream],
   [AC_DEFINE([HAVE_FSTREAM], [1], [Define to 1 if you have the <fstream> header file.])],
   [AC_MSG_WARN([<fstream> header not found, it's okay, but resulting library will be limited])])
@@ -25,8 +25,8 @@ AC_CHECK_HEADERS([cstdlib],
   [AC_DEFINE([HAVE_CSTDLIB], [1], [Define to 1 if you have the <cstdlib> header file.])],
   [AC_MSG_WARN([<cstdlib> header not found, it's okay, but resulting library will be limited])])
 AC_LANG_POP([C++])
-dnl try to save c++ compiler
 AC_CONFIG_HEADERS([config.h:config.h.in])
+cp $srcdir/config.h $srcdir/src/config.h
 dnl has to be at the end
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
