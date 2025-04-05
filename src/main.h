@@ -15,4 +15,5 @@ extern const string CXX;
 // colortext.h
 namespace colortext{
     extern string color(string original, string color);
+    extern string bold(string original);
 }

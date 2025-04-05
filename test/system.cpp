@@ -3,7 +3,7 @@
 
 #if HAVE_CSTDLIB
 int main(int argc, char** argv){
-    cout << CXX << endl;
+    cout << "NOTE: Using CXX as " << CXX << endl;
     try {
         if(sys(string("mkdir testdir")) == 0){
             sys(string("rmdir testdir"));
@@ -17,7 +17,7 @@ int main(int argc, char** argv){
         return 99;
     }
     try {
-        if (sys(string(CXX + " --version")) == 0){
+        if (!sys(string(CXX + " --version > /dev/null"))){
             cout << "PASS: CXX" << endl;
         } else {
             cout << "FAIL: CXX" << endl;
@@ -30,5 +30,9 @@ int main(int argc, char** argv){
     return 0;
 }
 #else
-int main(int argc, char ** argv){return 77;}
+int main(int argc, char ** argv){
+    cout << "NOTE: sys test skipped" << endl;
+    cout << "NOTE: CXX test skipped" << endl;
+    return 77;
+}
 #endif
