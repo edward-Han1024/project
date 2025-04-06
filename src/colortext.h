@@ -44,4 +44,10 @@ namespace colortext {
     string bold(string original){
         return string("\033[1m") + original + string("\033[22m");
     }
+    string dim(string original){
+        return string("\033[2m") + original + string("\033[22m]");
+    }
+    string it(string original){
+        return string("\033[3m") + original + string("\033[22m");
+    }
 }

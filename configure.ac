@@ -1,4 +1,5 @@
-AC_INIT([cust], [0.1], [Edward Han])
+Define(VERSION, [0.1])
+AC_INIT([cust], VERSION, [Edward Han])
 AM_INIT_AUTOMAKE
 AC_PROG_CXX
 LT_INIT

@@ -1,4 +1,4 @@
-#include"../src/main.h"
+#include"../src/cust.h"
 #include"../src/includes.h"
 using namespace colortext;
 
@@ -99,6 +99,30 @@ int main(int argc, char** argv){
         }
     } catch (std::exception &e){
         cout << "FAIL: colortext.bold" << endl;
+        cout << e.what() << endl;
+        return 99;
+    }
+    try{
+        if(strong("this") == string("\033[1mthis\033[22m") && bold(color("this", "red")) == string("\033[1m\033[31mthis\033[39m\033[22m")){
+            cout << "PASS: colortext.strong" << endl;
+        } else {
+            cout << "FAIL: colortext.strong" << endl;
+            return 99;
+        }
+    } catch (std::exception &e){
+        cout << "FAIL: colortext.strong" << endl;
+        cout << e.what() << endl;
+        return 99;
+    }
+    try{
+        if(em("this") == string("\033[1mthis\033[22m") && bold(color("this", "red")) == string("\033[1m\033[31mthis\033[39m\033[22m")){
+            cout << "PASS: colortext.em" << endl;
+        } else {
+            cout << "FAIL: colortext.me" << endl;
+            return 99;
+        }
+    } catch (std::exception &e){
+        cout << "FAIL: colortext.em" << endl;
         cout << e.what() << endl;
         return 99;
     }

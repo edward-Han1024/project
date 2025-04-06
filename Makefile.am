@@ -1,8 +1,13 @@
 AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS = -Wall
+
+# libs
 lib_LTLIBRARIES = lib/libcust.la
 lib_libcust_la_SOURCES = src/main.cpp src/colortext.h config.h src/system.h preferences.h
+
+# header
+include_HEADERS = src/cust.h
 
 # tests
 TESTS = bin/systemtest bin/colortexttest

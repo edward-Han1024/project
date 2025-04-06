@@ -1,4 +1,4 @@
-#include "../src/main.h"
+#include "../src/cust.h"
 #include "../src/includes.h"
 
 #if HAVE_CSTDLIB

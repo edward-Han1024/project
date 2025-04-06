@@ -16,4 +16,12 @@ extern const string CXX;
 namespace colortext{
     extern string color(string original, string color);
     extern string bold(string original);
+    extern string dim(string original);
+    extern string it(string original);
+    const auto &em = colortext::bold;
+    const auto &strong = colortext::bold;
+    const auto &faint = colortext::dim;
+    const auto &italics = colortext::it;
+    const auto &italic = colortext::it;
+    const auto &italicize = colortext::it;
 }
