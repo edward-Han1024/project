@@ -1,5 +1,4 @@
 #include"../src/cust.h"
-#include"../src/includes.h"
 using namespace colortext;
 
 int testcolor(string test, string real){

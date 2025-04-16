@@ -134,3 +134,6 @@ libtool
 m4
 lib
 config.h
+
+src/cust.h
+!src/cust.h.in

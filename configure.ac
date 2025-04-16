@@ -2,6 +2,7 @@ Define(VERSION, [0.1])
 AC_INIT([cust], VERSION, [Edward Han])
 AM_INIT_AUTOMAKE
 AC_PROG_CXX
+AC_PROG_CC
 LT_INIT
 AC_CONFIG_MACRO_DIRS([m4])
 dnl check header block
@@ -26,8 +27,23 @@ AC_CHECK_HEADERS([cstdlib],
   [AC_DEFINE([HAVE_CSTDLIB], [1], [Define to 1 if you have the <cstdlib> header file.])],
   [AC_MSG_WARN([<cstdlib> header not found, it's okay, but resulting library will be limited])])
 AC_LANG_POP([C++])
-AC_CONFIG_HEADERS([config.h:config.h.in])
-cp $srcdir/config.h $srcdir/src/config.h
 dnl has to be at the end
+AC_CONFIG_HEADERS([config.h:config.h.in])
+printf "extern const string CXX(\"" > $srcdir/src/CXX.h
+printf $CXX >> $srcdir/src/CXX.h
+echo "\");" >> $srcdir/src/CXX.h
+printf "extern const string CC(\"" >> $srcdir/src/CXX.h
+printf $CC >> $srcdir/src/CXX.h
+echo "\");" >> $srcdir/src/CXX.h
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_COMMANDS([src/cust.h], [
+echo "
+// cust.h
+// This file includes the definitions of the cust library
+// To include this file, link with -lcust
+// This file was automatically generated when config.status was ran
+" > $srcdir/src/cust.h
+cat $srcdir/config.h >> $srcdir/src/cust.h
+cat $srcdir/src/cust.h.in >> $srcdir/src/cust.h
+])
 AC_OUTPUT
