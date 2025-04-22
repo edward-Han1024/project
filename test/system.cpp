@@ -23,7 +23,18 @@ int main(int argc, char** argv){
             return 2;
         }
     } catch(...){
-        cout << "FAIL: sys" << endl;
+        cout << "FAIL: CXX" << endl;
+        return 99;
+    }
+    try {
+        if (!sys(string(CC + " --version > /dev/null"))){
+            cout << "PASS: CC" << endl;
+        } else {
+            cout << "FAIL: CC" << endl;
+            return 2;
+        }
+    } catch(...){
+        cout << "FAIL: CC" << endl;
         return 99;
     }
     return 0;
@@ -32,6 +43,7 @@ int main(int argc, char** argv){
 int main(int argc, char ** argv){
     cout << "NOTE: sys test skipped" << endl;
     cout << "NOTE: CXX test skipped" << endl;
+    cout << "NOTE: CC test skipped" << endl;
     return 77;
 }
 #endif

@@ -42,6 +42,7 @@ using std::ostringstream;
 extern int sys(string command);
 #endif
 extern const string CXX;
+extern const string CC;
 
 // colortext.h
 namespace colortext{

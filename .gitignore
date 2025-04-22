@@ -118,22 +118,32 @@ Temporary Items
 .apdisk
 
 # custom
-build
-clean
-test*
-a.*
-cust
-bin
-.vscode
+
+## other autotool artifacts
 stamp-*
 *~
-src/settings.h
-*.in
-!test/
 libtool
-m4
-lib
-config.h
+lib/
+m4/
+bin/
 
+## test files
+test*
+!test/
+
+## vscode
+.vscode
+
+## generated headers
+src/settings.h
+config.h
+src/CXX.h
+*.in
 src/cust.h
+
+## private script to clean the working tree
+clean
+
+## things we accidentally ignored
+!COPYING.LIB
 !src/cust.h.in
