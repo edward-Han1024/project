@@ -144,6 +144,9 @@ src/cust.h
 ## private script to clean the working tree
 clean
 
+## temporary
+temp*
+
 ## things we accidentally ignored
 !COPYING.LIB
 !src/cust.h.in
