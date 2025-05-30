@@ -4,7 +4,7 @@ AM_CPPFLAGS = -Wall
 
 # libs
 lib_LTLIBRARIES = lib/libcust.la
-lib_libcust_la_SOURCES = src/main.cpp src/system.cpp src/colortext.cpp src/file.cpp
+lib_libcust_la_SOURCES = src/system.cpp src/colortext.cpp src/file.cpp
 
 # header
 include_HEADERS = src/cust.h
