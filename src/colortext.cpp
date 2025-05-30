@@ -1,9 +1,26 @@
-#include"includes.h"
+// test/colortext.cpp : contains the colortext namespace
+// Copyright (C) 2025  Edward Han
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#include "includes.h"
 
 namespace colortext {
     string color(string original, string color){
         string rest("\033[39m");
         rest = original + rest;
+        // go through each color
         if(color == string("black")){
             return string("\033[30m") + rest;
         } else if(color == string("red")){
@@ -37,17 +54,21 @@ namespace colortext {
         } else if(color == string("bright white") || color == string("bright_white")){
             return string("\033[97m") + rest;
         } else{
-            throw std::invalid_argument("Color is not one of the accepted ones.");
+            throw std::invalid_argument("Color is not one of the accepted ones. (" + color + ")");
             return original;
         }
     }
+    // Not colors
     string bold(string original){
         return string("\033[1m") + original + string("\033[22m");
     }
     string dim(string original){
-        return string("\033[2m") + original + string("\033[22m]");
+        return string("\033[2m") + original + string("\033[22m");
     }
     string it(string original){
-        return string("\033[3m") + original + string("\033[22m");
+        return string("\033[3m") + original + string("\033[23m");
+    }
+    string u(string original){
+        return string("\033[4m") + original + string("\033[24m");
     }
 }

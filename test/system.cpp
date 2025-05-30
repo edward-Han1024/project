@@ -1,22 +1,21 @@
 #include "../src/cust.h"
 
-#if HAVE_CSTDLIB
 int main(int argc, char** argv){
     cout << "NOTE: Using CXX as " << CXX << endl;
     try {
-        if(sys(string("mkdir testdir")) == 0){
-            sys(string("rmdir testdir"));
-            cout << "PASS: sys" << endl;
+        if(system(string("mkdir testdir")) == 0){
+            system(string("rmdir testdir"));
+            cout << "PASS: system" << endl;
         } else {
-            cout << "FAIL: sys" << endl;
+            cout << "FAIL: system" << endl;
             return 1;
         }
     } catch(...){
-        cout << "FAIL: sys" << endl;
+        cout << "FAIL: system" << endl;
         return 99;
     }
     try {
-        if (!sys(string(CXX + " --version > /dev/null"))){
+        if (!system(string(CXX + " --version > /dev/null"))){
             cout << "PASS: CXX" << endl;
         } else {
             cout << "FAIL: CXX" << endl;
@@ -27,7 +26,7 @@ int main(int argc, char** argv){
         return 99;
     }
     try {
-        if (!sys(string(CC + " --version > /dev/null"))){
+        if (!system(string(CC + " --version > /dev/null"))){
             cout << "PASS: CC" << endl;
         } else {
             cout << "FAIL: CC" << endl;
@@ -39,11 +38,3 @@ int main(int argc, char** argv){
     }
     return 0;
 }
-#else
-int main(int argc, char ** argv){
-    cout << "NOTE: sys test skipped" << endl;
-    cout << "NOTE: CXX test skipped" << endl;
-    cout << "NOTE: CC test skipped" << endl;
-    return 77;
-}
-#endif

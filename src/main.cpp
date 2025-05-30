@@ -1,6 +1,4 @@
 #include "../config.h"
-#include "colortext.h"
-#include "system.h"
 
 #if !defined(IOSTREAM) && HAVE_IOSTREAM
 #define IOSTREAM

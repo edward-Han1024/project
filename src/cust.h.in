@@ -1,59 +1,122 @@
-#if !defined(IOSTREAM) && HAVE_IOSTREAM
-#define IOSTREAM
-#include<iostream>
-using std::cout;
-using std::endl;
-using std::cin;
-using std::cerr;
-#endif
+// system.cpp
 
-#if !defined(FSTREAM) && HAVE_FSTREAM
-#define FSTREAM
-#include<fstream>
-using std::ifstream;
-using std::ofstream;
-using std::remove;
-#endif
+/**
+ * @brief Run this command in a shell
+ * An overload for the standard system command but you can use it for a std::string instead of a const char *
+ * @param command what command to run
+ * @return (int) the return (exit) value of the command
+ */
+extern int system(string command);
+extern const string CXX; /** 
+ * @brief The C++ compiler
+ * The C++ compiler command as reported by configure
+ */
+extern const string CC; /** 
+ * @brief The C compiler
+ * The C compiler command as reported by configure
+ */
 
-#if !defined(STRING)
-#define STRING
-#include<string>
-using std::string;
-#endif
-
-#if !defined(VECTOR) && HAVE_VECTOR
-#define VECTOR
-#include<vector>
-using std::vector;
-#endif
-
-#if !defined(SSTREAM) && HAVE_SSTREAM
-#include<sstream>
-using std::ostringstream;
-#endif
-
-#if !defined(CSTDLIB) && HAVE_CSTDLIB
-#include <cstdlib>
-#endif
-
-
-// system.h
-#if HAVE_CSTDLIB
-extern int sys(string command);
-#endif
-extern const string CXX;
-extern const string CC;
-
-// colortext.h
+// colortext.cpp
+/**
+ * @brief Color your text
+ * A namespace that includes all the definitions of the colortext functions, which are not restricted to color. They also include definitions for aliases.
+ */
 namespace colortext{
+    /**
+     * @brief Color your text
+     * Sets your text font color to a specific color.
+     * 
+     * ### Valid Values:
+     * 
+     *  - black
+     * 
+     *  - red
+     * 
+     *  - green
+     * 
+     *  - yellow
+     * 
+     *  - blue
+     * 
+     *  - magenta
+     * 
+     *  - cyan
+     * 
+     *  - white
+     * 
+     *  - bright black = bright_black = gray = grey
+     * 
+     *  - bright red = bright_red
+     * 
+     *  - bright green = bright_green
+     * 
+     *  - bright yellow = bright_yellow
+     * 
+     *  - bright blue = bright_blue
+     * 
+     *  - bright magenta = bright_magenta = pink
+     * 
+     *  - bright cyan = bright_cyan
+     * 
+     *  - bright white = bright_white
+     * 
+     * ### Invalid Value
+     * 
+     * When an invalid value is encountered, it will throw an std::invalid_argument with the value equal to "Color is not one of the accepted ones." with the color in parenthesis such as "Color is not one of the accepted ones. (nonexistantcolor)"
+     * @param original the original string
+     * @param color the color (see the main documentation for valid values)
+     * @return (string) the final string
+     */
     extern string color(string original, string color);
+    /**
+     * @brief Bold the text.
+     * 
+     * @param original the original string
+     * @return (string) the final string
+     */
     extern string bold(string original);
+    /**
+     * @brief Make it fainter/dimmer.
+     * 
+     * @param original the original string
+     * @return (string) the final string
+     */
     extern string dim(string original);
+    /**
+     * @brief Italicize the text.
+     * 
+     * @param original the original string
+     * @return (string) the final string
+     */
     extern string it(string original);
-    const auto &em = colortext::bold;
+    /**
+     * @brief Underline the text.
+     * 
+     * @param original the original string
+     * @return (string) the final string
+     */
+    extern string u(string original);
+    const auto &em = colortext::bold; 
     const auto &strong = colortext::bold;
     const auto &faint = colortext::dim;
     const auto &italics = colortext::it;
     const auto &italic = colortext::it;
     const auto &italicize = colortext::it;
+    const auto &underline = colortext::u;
+} 
+
+// file.cpp
+/**
+ * @brief A namespace that defines all the file actions
+ */
+namespace file{
+    /**
+     * @brief Read the entire file
+     * Often directly reading from a file reads word by word or line by line. Using this function, you can read the entire file at once.
+     * @param filename the path of the file
+     * @return (string) the contents of the file
+     */
+    extern string readall(string filename);
 }
+// There must be a newline at the end of the cust.h.in file!
+
