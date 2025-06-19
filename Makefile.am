@@ -3,7 +3,7 @@ ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS = -Wall
 
 # libs
-lib_LTLIBRARIES = lib/libcust.la
+lib_LTLIBRARIES = lib/libcust.dylib
 lib_libcust_la_SOURCES = src/system.cpp src/colortext.cpp src/file.cpp
 
 # header

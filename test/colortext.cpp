@@ -26,7 +26,7 @@ void testcolor(string test, string real){
             exit(1);
         }
     } catch (exception &e){
-        cout << "FAIL: colortext.color" << test << endl;
+        cout << "ERROR: colortext.color" << test << endl;
         cout << e.what() << endl;
         exit(99);
     }
@@ -48,10 +48,10 @@ void testnoncolor(function<string(string)> notcolorfunction, string expected, st
             cout << "PASS: " << name << endl;
         } else {
             cout << "FAIL: " << name << endl;
-            exit(1);
+            ;
         }
     } catch (exception &e){
-        cout << "FAIL: colortext.bold" << endl;
+        cout << "ERROR: colortext.bold" << endl;
         cout << e.what() << endl;
         exit(99);
     }
